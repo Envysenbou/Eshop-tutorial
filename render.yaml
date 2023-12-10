@@ -1,0 +1,15 @@
+# render.yaml
+
+services:
+  - type: web
+    name: static-site
+    buildCommand: npm run build  # Adjust this based on your build process
+    staticPublishPath: /path/to/your/static/files  # Adjust the path to your built files
+    envVars:
+      - key: NODE_ENV
+        value: production  # Set environment variables as needed
+    routes:
+      - type: rewrite
+        source: /.*  # Route all requests to the static site
+
+# Add other configurations as needed
